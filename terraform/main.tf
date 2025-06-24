@@ -58,6 +58,13 @@ resource "aws_security_group" "myserver_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] # Node Exporter
   }
+  
+  ingress {
+    from_port   = 3001
+    to_port     = 3001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Node Exporter
+  }
 
   egress {
     from_port   = 0
