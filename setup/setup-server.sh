@@ -16,8 +16,8 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 # Create app directory
-mkdir -p ~/app
+mkdir -p ~/srm
 
-# (Optional) Clone your app repo
+# Clone your app repo
 git clone https://github.com/tyagi0320/SystemResourceMonitor.git ~/app
 
