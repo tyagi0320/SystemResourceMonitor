@@ -7,7 +7,7 @@ const register = new client.Registry();
 client.collectDefaultMetrics({ register });
 
 app.get('/', (req, res) => {
-  res.send('System Resource Monitor is live! now');
+  res.send('System Resource Monitor is live! ');
 });
 
 app.get('/metrics', async (req, res) => {
