@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: ../app
+    image: tyagi0320/systemresourcemonitor:latest
     ports:
       - "3000:3000"
     container_name: resource-app
@@ -19,7 +18,7 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - "3001:3000"   # Host:Container
+      - "3001:3000"
     container_name: grafana
 
   node_exporter:
