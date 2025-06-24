@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Wait until no apt/dpkg locks are held
+while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1 || \
+      sudo fuser /var/lib/apt/lists/lock >/dev/null 2>&1 || \
+      sudo fuser /var/cache/apt/archives/lock >/dev/null 2>&1; do
+    echo "[INFO] Waiting for apt lock to be released..."
+    sleep 5
+done
+
+
+
 echo "[INFO] Updating package list..."
 apt update -y
 
