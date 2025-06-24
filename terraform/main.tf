@@ -9,23 +9,10 @@ resource "aws_instance" "myserver" {
 
   vpc_security_group_ids = [aws_security_group.myserver_sg.id]
 
-  user_data = file("../setup/setup-server.sh")
+  user_data = file("../setup/setup-server.sh")  # relative path to script
 
   tags = {
     Name = "System-Resource-Monitor-Server"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo apt update -y"
-    ]
-
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file(var.private_key_path)
-      host        = self.public_ip
-    }
   }
 }
 
@@ -44,28 +31,28 @@ resource "aws_security_group" "myserver_sg" {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # App / Grafana
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 9090
     to_port     = 9090
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Prometheus
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 9100
     to_port     = 9100
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Node Exporter
+    cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   ingress {
     from_port   = 3001
     to_port     = 3001
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Node Exporter
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
