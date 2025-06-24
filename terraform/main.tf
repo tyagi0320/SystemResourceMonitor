@@ -6,12 +6,15 @@ resource "aws_instance" "myserver" {
   ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
-
+  subnet_id     = aws_subnet.my_subnet.id
   vpc_security_group_ids = [aws_security_group.myserver_sg.id]
 
+  user_data = file("setup/setup-server.sh")
+
   tags = {
-    Name = "System-Resource-Monitor-Server"
+    Name = "myserver"
   }
+}
 
   provisioner "remote-exec" {
     inline = [
