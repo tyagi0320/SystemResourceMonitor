@@ -28,7 +28,6 @@ resource "aws_instance" "myserver" {
       host        = self.public_ip
     }
   }
-}
 
 resource "aws_security_group" "myserver_sg" {
   name        = "system-resource-monitor-sg"
