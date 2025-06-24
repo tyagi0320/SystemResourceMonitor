@@ -9,7 +9,7 @@ resource "aws_instance" "myserver" {
 
   vpc_security_group_ids = [aws_security_group.myserver_sg.id]
 
-  user_data = file("setup/setup-server.sh")
+  user_data = file("../setup/setup-server.sh")
 
   tags = {
     Name = "System-Resource-Monitor-Server"
