@@ -1,0 +1,32 @@
+# AWS SSH Key
+*.pem
+*.key
+
+# Terraform Secrets
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.pem
+terraform.tfvars
+
+
+# Ansible Inventory (can contain IPs and key paths)
+ansible/hosts.ini
+
+# Secrets directory
+secrets/
+*.json
+
+# VSCode or other editor settings
+.vscode/
+.idea/
+
+# Python or Node.js artifacts
+__pycache__/
+*.pyc
+node_modules/
+
+# Docker-related
+*.env
+.env.*
+
