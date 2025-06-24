@@ -9,10 +9,6 @@
 *.pem
 terraform.tfvars
 
-
-# Ansible Inventory (can contain IPs and key paths)
-ansible/hosts.ini
-
 # Secrets directory
 secrets/
 *.json

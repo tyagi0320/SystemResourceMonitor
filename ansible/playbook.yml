@@ -1,6 +1,0 @@
----
-- name: Setup DevOps EC2 Server
-  hosts: myserver
-  become: true
-  roles:
-    - server-setup
