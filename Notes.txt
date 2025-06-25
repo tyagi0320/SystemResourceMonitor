@@ -1,0 +1,2 @@
+*After running the ec2 using terraform apply donot expect ec2 to have docker. You first need to restart the ec2 and then you will find docker installed on it.
+*After docker is installed , docker compose is there , git is there, copy the instance ip and paste it in the EC2_HOST github secret for you ci/cd pipeline functioning.
