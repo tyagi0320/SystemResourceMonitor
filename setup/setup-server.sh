@@ -9,27 +9,21 @@ while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1 || \
 done
 
 echo "[INFO] Updating package list..."
-apt update -y
+sudo apt update -y
 
-echo "[INFO] Installing Docker and Compose plugin..."
-apt install -y docker.io docker-compose-plugin git
+echo "[INFO] Installing Docker & Compose plugin..."
+sudo apt install -y docker.io docker-compose-plugin git
 
-echo "[INFO] Adding ubuntu to docker group..."
-usermod -aG docker ubuntu
+echo "[INFO] Adding ubuntu user to docker group..."
+sudo usermod -aG docker ubuntu
 
-echo "[INFO] Enabling and starting Docker service..."
-systemctl enable docker
-systemctl start docker
-
-# Optional wait for Docker to fully start
-sleep 5
+echo "[INFO] Enabling Docker service..."
+sudo systemctl enable docker
+sudo systemctl start docker
 
 echo "[INFO] Cloning your repo..."
-mkdir -p /home/ubuntu/SystemResourceMonitor
-git clone https://github.com/tyagi0320/SystemResourceMonitor.git /home/ubuntu/SystemResourceMonitor
-chown -R ubuntu:ubuntu /home/ubuntu/SystemResourceMonitor
+sudo mkdir -p /home/ubuntu/SystemResourceMonitor
+sudo git clone https://github.com/tyagi0320/SystemResourceMonitor.git /home/ubuntu/SystemResourceMonitor
+sudo chown -R ubuntu:ubuntu /home/ubuntu/SystemResourceMonitor
 
 echo "[INFO] Setup complete ✅"
-
-# Final note: docker commands won't work for 'ubuntu' user until next login
-echo "[WARNING] You must re-login or reboot to use docker without sudo."
