@@ -93,7 +93,7 @@ cd /home/ubuntu/SystemResourceMonitor/monitoring
 docker compose up -d
 ```
 
-### 🔍 Access Services
+###  Access Services
 
 | Service       | URL |
 |---------------|-----|
@@ -104,7 +104,7 @@ docker compose up -d
 
 ---
 
-## 📊 Grafana Setup
+## Grafana Setup
 
 1. Login at `http://<EC2-IP>:3001` (user: `admin`, pass: `admin`)
 2. Add Prometheus data source: `http://prometheus:9090`
@@ -112,7 +112,17 @@ docker compose up -d
 
 ---
 
-## 🔄 CI/CD Pipeline
+## Delete Your Resources
+
+1. Go to SystemResourceMonitor\Terrafrom
+2. ```bash
+   ssh -i path/to/srm_key.pem ubuntu@<EC2_PUBLIC_IP>
+    ```
+3. Your EC2 instance is now created automatically
+
+---
+
+## CI/CD Pipeline
 
 - Uses GitHub Actions for deployment automation
 - Auto-deploys on `main` branch push
@@ -126,7 +136,7 @@ docker compose up -d
 - Reproducible cloud infrastructure
 - Real-world system monitoring
 - Shows mastery of IAC, Docker, CI/CD, observability
-- Great portfolio project for DevOps/SRE roles
+- Great learners project for DevOps/SRE roles
 
 <br>
 
