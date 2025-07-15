@@ -66,34 +66,55 @@ A full-stack DevOps project that provisions cloud infrastructure, deploys a web 
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repo
+### 1 Clone the Repo
 
 ```bash
 git clone https://github.com/tyagi0320/SystemResourceMonitor.git
 cd SystemResourceMonitor/terraform
 ```
 
-### 2️⃣ Deploy Infrastructure (Terraform)
+### 2 Deploy Infrastructure (Terraform)
 
 ```bash
 terraform init
 terraform apply
 ```
 
-### 3️⃣ SSH into Server
+### 3 SSH into Server
 
 ```bash
 ssh -i path/to/srm_key.pem ubuntu@<EC2_PUBLIC_IP>
 ```
 
-### 4️⃣ Launch the App
+### 4 CI/CD Setup 
+
+This project uses **GitHub Actions** to automate deployment to your EC2 instance. Instead of deploying manually, you can enable CI/CD using SSH and Docker.
+
+---
+
+#### 🔐 Configure GitHub Secrets
+
+In your GitHub repository, go to **Settings → Secrets and variables → Actions** and add:
+
+| Secret Name         | Description                                           |
+|---------------------|-------------------------------------------------------|
+| `EC2_HOST`          | Public IP (or Elastic IP) of your EC2 instance        |
+| `EC2_SSH_KEY`       | Content of your EC2 `.pem` private key (as a string)  |
+| `DOCKERHUB_USERNAME`| Your Docker Hub username                              |
+| `DOCKERHUB_TOKEN`   | Docker Hub access token (for login/push)              |
+
+> ⚠️ **Important:** Ensure your EC2 key pair is secure — never commit `.pem` files to GitHub.
+
+---
+Now do following after doing SSH into your EC2:
 
 ```bash
 cd /home/ubuntu/SystemResourceMonitor/monitoring
-docker compose up -d
+docker compose up -d 
 ```
 
-###  Access Services
+
+### 5 Access Services
 
 | Service       | URL |
 |---------------|-----|
@@ -104,7 +125,7 @@ docker compose up -d
 
 ---
 
-## Grafana Setup
+## 6 Grafana Setup
 
 1. Login at `http://<EC2-IP>:3001` (user: `admin`, pass: `admin`)
 2. Add Prometheus data source: `http://prometheus:9090`
