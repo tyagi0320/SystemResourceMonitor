@@ -1,6 +1,3 @@
-*After running the ec2 using terraform apply donot expect ec2 to have docker. You first need to restart the ec2 and then you will find docker installed on it.
-*After docker is installed , docker compose is there , git is there, copy the instance ip and paste it in the EC2_HOST github secret for you ci/cd pipeline functioning.
-
 # 🖥️ System Resource Monitor
 
 A full-stack DevOps project that provisions cloud infrastructure, deploys a web app, and monitors system metrics using Prometheus and Grafana — all with complete automation using Docker, Terraform, and CI/CD.
