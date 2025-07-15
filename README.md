@@ -1,4 +1,3 @@
-
 # 🖥️ System Resource Monitor
 
 A full-stack DevOps project that provisions cloud infrastructure, deploys a web app, and monitors system metrics using Prometheus and Grafana — all with complete automation using Docker, Terraform, and CI/CD.
@@ -53,7 +52,7 @@ A full-stack DevOps project that provisions cloud infrastructure, deploys a web 
       └─────────────┘                       │ Grafana         │
                                             │ Node Exporter   │
                                             └─────────────────┘
-
+```
 ## ⚙️ Features
 
 - ✅ Launch infrastructure with `terraform apply`
@@ -63,7 +62,7 @@ A full-stack DevOps project that provisions cloud infrastructure, deploys a web 
 - ✅ CI/CD auto-deploy via GitHub Actions
 - ✅ Monitoring of CPU, memory, disk, network usage
 
----
+<br>
 
 ## 🚀 Getting Started
 
@@ -129,23 +128,42 @@ docker-compose up -d
 - Shows mastery of IAC, Docker, CI/CD, observability
 - Great portfolio project for DevOps/SRE roles
 
----
+<br>
 
 ## 📂 Directory Structure
 
 ```
 SystemResourceMonitor/
 │
-├── terraform/               # Infrastructure code
-│   └── main.tf              # EC2 instance, security groups
+├── .github/workflows/         # CI/CD pipeline (GitHub Actions)
+│   └── deploy.yml
 │
-├── monitoring/              # Docker Compose and app setup
-│   ├── docker-compose.yml
-│   └── prometheus/
-│       └── prometheus.yml
+├── app/                       # Node.js web application
+│   ├── Dockerfile
+│   ├── index.js
+│   └── package.json
 │
-└── .github/workflows/       # CI/CD GitHub Actions config
-    └── deploy.yml
+├── monitoring/                # Monitoring stack configuration
+│   ├── docker-compose.yml     # Orchestration for Prometheus, Grafana, etc.
+│   ├── secrets/               # (Optional) Environment or secret configs
+│   └── prometheus/            # Prometheus config files (e.g., prometheus.yml)
+│
+├── setup/                     # Server provisioning scripts
+│   └── setup-server.sh
+│
+├── terraform/                 # Infrastructure-as-Code (AWS EC2, etc.)
+│   ├── main.tf
+│   ├── outputs.tf
+│   ├── variables.tf
+│   ├── terraform.tfvars
+│   ├── terraform.tfstate
+│   ├── terraform.tfstate.backup
+│   └── .terraform/            # Terraform local state directory
+│
+├── .gitignore
+├── Notes.txt                  # Additional project notes
+└── README.md
+
 ```
 
 ---
@@ -161,10 +179,13 @@ SystemResourceMonitor/
 
 ## Author
 
+Email: tharshit03@gmail.com  
+GitHub: [@tyagi0320](https://github.com/tyagi0320)
 
+----
+
+## License 
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## 📄 License
-
-MIT — free to use for learning and demonstration
