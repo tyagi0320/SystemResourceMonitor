@@ -159,10 +159,9 @@ SystemResourceMonitor/
 
 ---
 
-## 🙌 Maintainer
+## Author
 
-**Harshit Tyagi**  
-[GitHub Profile](https://github.com/tyagi0320)
+
 
 ---
 
