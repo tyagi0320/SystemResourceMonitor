@@ -7,11 +7,6 @@ const register = new client.Registry();
 client.collectDefaultMetrics({ register });
 
 app.get('/', (req, res) => {
-  res.send('System Resource Monitor is live! ');
-});
-
-/*
-app.get('/', (req, res) => {
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
@@ -67,7 +62,6 @@ app.get('/', (req, res) => {
   `);
 });
 
-*/
 app.get('/metrics', async (req, res) => {
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
