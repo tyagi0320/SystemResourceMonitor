@@ -90,7 +90,7 @@ ssh -i path/to/srm_key.pem ubuntu@<EC2_PUBLIC_IP>
 
 ```bash
 cd /home/ubuntu/SystemResourceMonitor/monitoring
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 🔍 Access Services
